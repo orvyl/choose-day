@@ -26,11 +26,11 @@ public class ChooseDayApplication {
 									AdvocacyRepository advocacyRepository,
 									CandidateAdvocacyRepository candidateAdvocacyRepository) {
 		return strings -> {
-			Candidate binay = candidateRepository.save(new Candidate("Jejomar", "Binay"));
-			Candidate duterte = candidateRepository.save(new Candidate("Rudy", "Duterte"));
-			Candidate poe = candidateRepository.save(new Candidate("Grace", "Poe"));
-			Candidate roxas = candidateRepository.save(new Candidate("Mar", "Roxas"));
-			Candidate santiago = candidateRepository.save(new Candidate("Miriam", "Santiago"));
+			Candidate binay = candidateRepository.save(new Candidate(1L, "Jejomar", "Binay"));
+			Candidate duterte = candidateRepository.save(new Candidate(2L, "Rudy", "Duterte"));
+			Candidate poe = candidateRepository.save(new Candidate(3L, "Grace", "Poe"));
+			Candidate roxas = candidateRepository.save(new Candidate(4L, "Mar", "Roxas"));
+			Candidate santiago = candidateRepository.save(new Candidate(5L, "Miriam", "Santiago"));
 
 			Advocacy povertyReduction = advocacyRepository.save(new Advocacy("Poverty Reduction", "Poverty reduction blabla"));
 			Advocacy jobCreation = advocacyRepository.save(new Advocacy("Job Creation", "Job Creation blabla"));

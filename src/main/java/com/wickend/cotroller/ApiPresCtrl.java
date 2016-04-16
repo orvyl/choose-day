@@ -9,9 +9,7 @@ import com.wickend.repo.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by vyl on 4/16/16.
@@ -33,11 +31,15 @@ public class ApiPresCtrl {
     public List<Product> productsToDisplay() {
         List<Product> products = new ArrayList<>();
         candidateRepository.findAll().forEach(candidate -> {
+            List<String> productsAdded = new ArrayList<>();
+            products.forEach(product -> productsAdded.add(product.getName()));
+
             List<CandidateAdvocacy> candidateAdvocacies = candidate.getCandidateAdvocacies();
             Collections.shuffle(candidateAdvocacies);
             for (int x = 0; x < 3; x++) {
                 CandidateAdvocacy c = candidateAdvocacies.get(x);
-                products.add(new Product(c.getId(), c.getAdvocacy().getTitle(), "img", c.getAdvocacy().getDescription()));
+                if (!productsAdded.contains(c.getAdvocacy().getTitle()))
+                    products.add(new Product(c.getId(), c.getAdvocacy().getTitle(), "img", c.getAdvocacy().getDescription()));
             }
         });
 
@@ -48,12 +50,16 @@ public class ApiPresCtrl {
     @RequestMapping(method = RequestMethod.POST, value = "get-couriers")
     public List<Courier> couriers(@RequestBody List<Long> products) {
         List<Courier> couriers = new ArrayList<>();
+
+
+
         couriers.add(new Courier(1L, "XY Boombastic", "Courier boom boom"));
-        couriers.add(new Courier(2L, "Caterpillapilapil", "Courier boom boom"));
+        couriers.add(new Courier(2L, "Caterpillarpilapil", "Courier boom boom"));
         couriers.add(new Courier(3L, "Padalapit", "Courier boom boom"));
         return couriers;
     }
 
+    @CrossOrigin(value = "*")
     @RequestMapping(value = "courier/{id}", method = RequestMethod.POST)
     public String result(@RequestBody List<Long> products, @PathVariable("id") String courierId) {
         return "duterte";

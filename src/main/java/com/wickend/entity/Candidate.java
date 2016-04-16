@@ -4,7 +4,9 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -15,7 +17,6 @@ import java.util.List;
 @Entity
 public class Candidate {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(value = AccessLevel.NONE)
     private Long id;
 
@@ -27,7 +28,8 @@ public class Candidate {
     private List<CandidateAdvocacy> candidateAdvocacies;
 
     public Candidate() {}
-    public Candidate(String firstName, String lastName) {
+    public Candidate(Long id, String firstName, String lastName) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
