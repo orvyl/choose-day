@@ -17,5 +17,12 @@ public class Advocacy {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String title;
     private String description;
+
+    public Advocacy() {}
+    public Advocacy(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
 }

@@ -2,6 +2,8 @@ package com.wickend.cotroller;
 
 import com.wickend.payload.Courier;
 import com.wickend.payload.Product;
+import com.wickend.repo.CandidateRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -14,6 +16,9 @@ import java.util.List;
 @RequestMapping("/pres")
 public class ApiPresCtrl {
 
+    @Autowired
+    private CandidateRepository candidateRepository;
+
     @RequestMapping(value = "products")
     public List<Product> productsToDisplay() {
         List<Product> products = new ArrayList<>();
@@ -23,8 +28,6 @@ public class ApiPresCtrl {
         products.add(new Product(4L, "Welfare of senior citizens", "img", "Welfare of senior citizens blabla"));
         products.add(new Product(5L, "Increased benefits of public school teachers", "img", "Increased benefits of public school teachers  blabla"));
         products.add(new Product(6L, "Mass housing", "img", "Mass housing blabla"));
-
-
 
         return products;
     }

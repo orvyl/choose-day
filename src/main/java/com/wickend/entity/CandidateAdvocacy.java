@@ -2,10 +2,7 @@ package com.wickend.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by vyl on 4/16/16.
@@ -17,6 +14,14 @@ public class CandidateAdvocacy {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn
+    private Candidate candidate;
     private Long advocacyId;
-    private Long candidateId;
+
+    public CandidateAdvocacy() {}
+    public CandidateAdvocacy(Candidate candidate, Long advocacyId) {
+        this.candidate = candidate;
+        this.advocacyId = advocacyId;
+    }
 }

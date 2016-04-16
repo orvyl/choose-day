@@ -4,11 +4,9 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * Created by vyl on 4/16/16.
@@ -24,4 +22,15 @@ public class Candidate {
     private String firstName;
     private String lastName;
     private BigDecimal netWorth;
+
+    @OneToMany(mappedBy = "candidate")
+    private List<CandidateAdvocacy> candidateAdvocacies;
+
+    public Candidate() {}
+    public Candidate(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+
 }
