@@ -1,6 +1,7 @@
 package com.wickend.cotroller;
 
 import com.wickend.entity.Advocacy;
+import com.wickend.entity.Candidate;
 import com.wickend.entity.CandidateAdvocacy;
 import com.wickend.entity.Result;
 import com.wickend.payload.Courier;
@@ -33,6 +34,31 @@ public class ApiPresCtrl {
 
     @Autowired
     private ResultRepository resultRepository;
+
+    @RequestMapping(value = "receipt/{id}")
+    public Receipt receipt(@PathVariable("id") String id) {
+        Long cid = Long.valueOf(id);
+        Result r = resultRepository.findOne(cid);
+        List<Product> products = new ArrayList<>();
+        List<String> ac = Arrays.asList(r.getItems().split("\\|"));
+        ac.forEach(s -> {
+            Advocacy one = advocacyRepository.findOne(Long.valueOf(s));
+            products.add(new Product(one.getId(), one.getTitle(), "img", one.getDescription()));
+        });
+        long totCount = resultRepository.count();
+        final Long[] ctr = {0L};
+        resultRepository.findAll().forEach(result -> {
+            if (result.getCandidateId().equals(cid)) ctr[0]++;
+        });
+
+        Receipt receipt = new Receipt();
+        receipt.setProducts(products);
+        Candidate one = candidateRepository.findOne(r.getCandidateId());
+        receipt.setPresName(one.getFirstName() + " " + one.getLastName());
+        receipt.setPercent((int) ((ctr[0]/totCount) * 100));
+
+        return receipt;
+    }
 
     @RequestMapping(value = "products")
     public List<Product> productsToDisplay() {
@@ -100,13 +126,6 @@ public class ApiPresCtrl {
         products.forEach(aLong -> stringBuilder.append(aLong).append("|"));
         Result result = resultRepository.save(new Result(courierId, stringBuilder.toString()));
         return result.getId();
-    }
-
-    @RequestMapping(value = "receipt/{id}")
-    public Receipt receipt(@PathVariable("id") String id) {
-        Result r = resultRepository.findOne(Long.valueOf(id));
-        List<Advocacy> advocacies = new ArrayList<>();
-        return new Receipt(candidateRepository.findOne(r.getCandidateId()), advocacies, 89);
     }
 
     class CandAdvCtr {

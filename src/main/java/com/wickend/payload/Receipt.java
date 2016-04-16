@@ -1,7 +1,5 @@
 package com.wickend.payload;
 
-import com.wickend.entity.Advocacy;
-import com.wickend.entity.Candidate;
 import lombok.Data;
 
 import java.util.List;
@@ -11,14 +9,7 @@ import java.util.List;
  */
 @Data
 public class Receipt {
-    private Candidate candidate;
-    private List<Advocacy> advocacies;
+    private String presName;
+    private List<Product> products;
     private Integer percent;
-
-    public Receipt() {}
-    public Receipt(Candidate candidate, List<Advocacy> advocacies, Integer percent) {
-        this.candidate = candidate;
-        this.advocacies = advocacies;
-        this.percent = percent;
-    }
 }
