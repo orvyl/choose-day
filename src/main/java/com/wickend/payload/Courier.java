@@ -9,6 +9,7 @@ import java.util.List;
  */
 @Data
 public class Courier {
+    private Long id;
     private String name;
     private List<String> description;
 }
