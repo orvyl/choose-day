@@ -37,6 +37,10 @@ public class ChooseDayApplication {
 			Advocacy protectionPromoteOFW = advocacyRepository.save(new Advocacy("Protection and promotion of rights of OFWs", "Protection and promotion of rights of OFWs blabla"));
 			Advocacy welfareSeniorCit = advocacyRepository.save(new Advocacy("Welfare of senior citizens", "Welfare of senior citizens blabla"));
 			Advocacy increaseBenSchTchr = advocacyRepository.save(new Advocacy("Increased benefits of public school teachers", "Increased benefits of public school teachers blabla"));
+			Advocacy massHousing = advocacyRepository.save(new Advocacy("Mass housing", "Mass housing blabla"));
+			Advocacy massTransaport = advocacyRepository.save(new Advocacy("Addressing mass transport problem", "Addressing mass transport problem blabla"));
+			Advocacy fightCrimeDrugs = advocacyRepository.save(new Advocacy("Fighting criminality, illegal drugs", "Fighting criminality, illegal drugs blabla"));
+			Advocacy antiCorrupt = advocacyRepository.save(new Advocacy("Addressing corruption", "Addressing corruption blabla"));
 
 			List<CandidateAdvocacy> binayAdvc = new ArrayList<>();
 			binayAdvc.add(new CandidateAdvocacy(binay, povertyReduction.getId()));
