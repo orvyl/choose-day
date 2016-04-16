@@ -32,7 +32,7 @@ public class ChooseDayApplication {
 			Candidate roxas = candidateRepository.save(new Candidate(4L, "Mar", "Roxas"));
 			Candidate santiago = candidateRepository.save(new Candidate(5L, "Miriam", "Santiago"));
 
-			Advocacy povertyReduction = advocacyRepository.save(new Advocacy("Poverty Reduction", "Poverty reduction blabla"));
+			Advocacy povertyReduction = advocacyRepository.save(new Advocacy("Poverty Reduction", "According to the 2012 SWS  survey on the most important problem of the country, 10.22% of the electorate mentioned Poverty which makes it the 3rd most cited problem"));
 			Advocacy jobCreation = advocacyRepository.save(new Advocacy("Job Creation", "Job Creation blabla"));
 			Advocacy protectionPromoteOFW = advocacyRepository.save(new Advocacy("Protection and promotion of rights of OFWs", "Protection and promotion of rights of OFWs blabla"));
 			Advocacy welfareSeniorCit = advocacyRepository.save(new Advocacy("Welfare of senior citizens", "Welfare of senior citizens blabla"));

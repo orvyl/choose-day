@@ -37,6 +37,14 @@ public class ApiPresCtrl {
 
     @RequestMapping(value = "receipt/{id}")
     public Receipt receipt(@PathVariable("id") String id) {
+
+        Map<Long, String> courier = new HashMap<>();
+        courier.put(1L, "XYZ Boombastic");
+        courier.put(2L, "Caterpilarpil Express");
+        courier.put(3L, "Padalapit");
+        courier.put(4L, "PikPakBoom Cour");
+        courier.put(5L, "UpUpAndAway");
+
         Long cid = Long.valueOf(id);
         Result r = resultRepository.findOne(cid);
         List<Product> products = new ArrayList<>();
@@ -56,6 +64,7 @@ public class ApiPresCtrl {
         Candidate one = candidateRepository.findOne(r.getCandidateId());
         receipt.setPresName(one.getFirstName() + " " + one.getLastName());
         receipt.setPercent((int) ((ctr[0]/totCount) * 100));
+        receipt.setCourier(courier.get(cid));
 
         return receipt;
     }
@@ -83,6 +92,8 @@ public class ApiPresCtrl {
     @RequestMapping(method = RequestMethod.POST, value = "get-couriers")
     public List<Courier> couriers(@RequestBody List<Long> products) {
         List<Courier> couriers = new ArrayList<>();
+
+        // TODO add description
 
         CandAdvCtr binay = new CandAdvCtr(1L, 0, "XYZ Boombastic");
         CandAdvCtr duterte = new CandAdvCtr(2L, 0, "Caterpilarpil Express");

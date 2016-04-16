@@ -10,6 +10,7 @@ import java.util.List;
 @Data
 public class Receipt {
     private String presName;
+    private String courier;
     private List<Product> products;
     private Integer percent;
 }
