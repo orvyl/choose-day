@@ -33,25 +33,25 @@ public class ChooseDayApplication {
 			Candidate santiago = candidateRepository.save(new Candidate(5L, "Miriam", "Santiago"));
 
 			Advocacy povertyReduction = advocacyRepository.save(new Advocacy("Poverty Reduction", "According to the 2012 SWS  survey on the most important problem of the country, 10.22% of the electorate mentioned Poverty which makes it the 3rd most cited problem"));
-			Advocacy jobCreation = advocacyRepository.save(new Advocacy("Job Creation", "Job Creation blabla"));
-			Advocacy protectionPromoteOFW = advocacyRepository.save(new Advocacy("Protection and promotion of rights of OFWs", "Protection and promotion of rights of OFWs blabla"));
-			Advocacy welfareSeniorCit = advocacyRepository.save(new Advocacy("Welfare of senior citizens", "Welfare of senior citizens blabla"));
-			Advocacy increaseBenSchTchr = advocacyRepository.save(new Advocacy("Increased benefits of public school teachers", "Increased benefits of public school teachers blabla"));
-			Advocacy massHousing = advocacyRepository.save(new Advocacy("Mass housing", "Mass housing blabla"));
-			Advocacy massTransaport = advocacyRepository.save(new Advocacy("Addressing mass transport problem", "Addressing mass transport problem blabla"));
-			Advocacy fightCrimeDrugs = advocacyRepository.save(new Advocacy("Fighting criminality, illegal drugs", "Fighting criminality, illegal drugs blabla"));
-			Advocacy antiCorrupt = advocacyRepository.save(new Advocacy("Addressing corruption", "Addressing corruption blabla"));
-			Advocacy federalism = advocacyRepository.save(new Advocacy("Shifting to a federal system of government", "Shifting to a federal system of government blabla"));
-			Advocacy deathPenalty = advocacyRepository.save(new Advocacy("Reviving the death penalty", "Reviving the death penalty blabla"));
-			Advocacy charterChange = advocacyRepository.save(new Advocacy("Charter change", "Charter change blabla"));
-			Advocacy childrenWelfare = advocacyRepository.save(new Advocacy("Children's Welfare", "Children's Welfare blabla"));
-			Advocacy electoralReform = advocacyRepository.save(new Advocacy("Electoral reform", "Electoral reform blabla"));
-			Advocacy foi = advocacyRepository.save(new Advocacy("Freedom of Information", "Freedom of Information blabla"));
-			Advocacy goodGovernance = advocacyRepository.save(new Advocacy("Good governance", "Good governance blabla"));
-			Advocacy education = advocacyRepository.save(new Advocacy("Education", "Education blabla"));
-			Advocacy ruleOfLaw = advocacyRepository.save(new Advocacy("Rule of Law", "Rule of Law blabla"));
-			Advocacy foreignPolicy = advocacyRepository.save(new Advocacy("Foreign Policy", "Foreign Policy blabla"));
-			Advocacy womensRight = advocacyRepository.save(new Advocacy("Women's right", "Women's right blabla"));
+			Advocacy jobCreation = advocacyRepository.save(new Advocacy("Job Creation", "Unemployment, at 33.96%  is the top most important problem of the country based on the 2012 SWS survey "));
+			Advocacy protectionPromoteOFW = advocacyRepository.save(new Advocacy("Protection and promotion of rights of OFWs", "Protection and promotion of rights of OFWs."));
+			Advocacy welfareSeniorCit = advocacyRepository.save(new Advocacy("Welfare of senior citizens", "Social Services (Education, Health, Disaster etc.), in general, has 11.23% frequency on the 2012 SWS survey on the most important problem of the country."));
+			Advocacy increaseBenSchTchr = advocacyRepository.save(new Advocacy("Increased benefits of public school teachers", "Based on the 2012 SWS survey, Income/Salaries/Wags Too low is one of the most  important problem of the country with 2.85% frequency"));
+			Advocacy massHousing = advocacyRepository.save(new Advocacy("Mass housing", "Housing problems has 0.26% frequency on the 2012 SWS survey on the most important problem of the country"));
+			Advocacy massTransaport = advocacyRepository.save(new Advocacy("Addressing mass transport problem", "Addressing mass transport problem."));
+			Advocacy fightCrimeDrugs = advocacyRepository.save(new Advocacy("Fighting criminality, illegal drugs", "Crime, in general, has 3.02% frequency on the 2012 SWS survey on the most important problem of the country"));
+			Advocacy antiCorrupt = advocacyRepository.save(new Advocacy("Addressing corruption", "Corruption/Public Morality, at 11.37%, is the second top most important problem of the country based on the 2012 SWS survey"));
+			Advocacy federalism = advocacyRepository.save(new Advocacy("Shifting to a federal system of government", "1.02% of the electorate mentioned democracy in general as the most important problem of  the country"));
+			Advocacy deathPenalty = advocacyRepository.save(new Advocacy("Reviving the death penalty", "Crime, in general, has 3.02% frequency on the 2012 SWS survey on the most important problem of the country"));
+			Advocacy charterChange = advocacyRepository.save(new Advocacy("Charter change", "1.02% of the electorate mentioned democracy in geneal as the most important problem of  the country"));
+			Advocacy childrenWelfare = advocacyRepository.save(new Advocacy("Children's Welfare", "Social Services (Education, Health, Disaster etc.), in general, has 11.23% frequency on the 2012 SWS survey on the most important problem of the country"));
+			Advocacy electoralReform = advocacyRepository.save(new Advocacy("Electoral reform", "According to the 2012 SWS  survey on the most important problem of the country, 0.08% of the electorate mentioned Election Problems"));
+			Advocacy foi = advocacyRepository.save(new Advocacy("Freedom of Information", "Freedom of Information."));
+			Advocacy goodGovernance = advocacyRepository.save(new Advocacy("Good governance", "Governance, in general, has 12.11% frequency on the 2012 SWS survey on the most important problem of the country. This includes Corruption/Public Morality at 11.37% and Fiscal Deficit at 0.43%"));
+			Advocacy education = advocacyRepository.save(new Advocacy("Education", "Based on the 2012 SWS survey on the most important problem of the country, Education has 0.61% frequency"));
+			Advocacy ruleOfLaw = advocacyRepository.save(new Advocacy("Rule of Law", "Rule of Law."));
+			Advocacy foreignPolicy = advocacyRepository.save(new Advocacy("Foreign Policy", "Security Problems in general has 1.79% frequency on the 2012 SWS survey on the most important problem of the country"));
+			Advocacy womensRight = advocacyRepository.save(new Advocacy("Women's right", "Social Services (Education, Health, Disaster etc.), in general, has 11.23% frequency on the 2012 SWS survey on the most important problem of the country"));
 
 			List<CandidateAdvocacy> caBinay = new ArrayList<>();
 			caBinay.add(new CandidateAdvocacy(binay, povertyReduction));
@@ -94,6 +94,8 @@ public class ChooseDayApplication {
 			caSantiago.add(new CandidateAdvocacy(santiago, foreignPolicy));
 			caSantiago.add(new CandidateAdvocacy(santiago, womensRight));
 			candidateAdvocacyRepository.save(caSantiago);
+
+			// todo seed result
 		};
 	}
 }
