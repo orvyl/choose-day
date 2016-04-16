@@ -72,7 +72,7 @@ public class ApiPresCtrl {
             for (int x = 0; x < 3; x++) {
                 CandidateAdvocacy c = candidateAdvocacies.get(x);
                 if (!productsAdded.contains(c.getAdvocacy().getTitle()))
-                    products.add(new Product(c.getId(), c.getAdvocacy().getTitle(), "img", c.getAdvocacy().getDescription()));
+                    products.add(new Product(c.getAdvocacy().getId(), c.getAdvocacy().getTitle(), "img", c.getAdvocacy().getDescription()));
             }
         });
 
