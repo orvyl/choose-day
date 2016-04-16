@@ -1,5 +1,6 @@
 package com.wickend;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -13,6 +14,7 @@ public class ChooseDayApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		Assert.assertEquals(1, 1);
 	}
 
 }
