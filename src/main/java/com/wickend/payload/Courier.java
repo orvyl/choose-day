@@ -8,7 +8,7 @@ import java.util.List;
  * Created by vyl on 4/16/16.
  */
 @Data
-public class Product {
+public class Courier {
     private String name;
     private List<String> description;
 }
