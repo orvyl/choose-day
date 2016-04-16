@@ -11,5 +11,13 @@ import java.util.List;
 public class Courier {
     private Long id;
     private String name;
-    private List<String> description;
+    private String description;
+
+    public Courier() {}
+
+    public Courier(Long id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
 }

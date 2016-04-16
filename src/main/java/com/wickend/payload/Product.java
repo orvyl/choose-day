@@ -2,8 +2,6 @@ package com.wickend.payload;
 
 import lombok.Data;
 
-import java.util.List;
-
 /**
  * Created by vyl on 4/16/16.
  */
@@ -12,5 +10,14 @@ public class Product {
     private Long id;
     private String name;
     private String img;
-    private List<String> description;
+    private String description;
+
+    public Product(){}
+
+    public Product(Long id, String name, String img, String description){
+        this.id = id;
+        this.name = name;
+        this.img = img;
+        this.description = description;
+    }
 }
