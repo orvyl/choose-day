@@ -21,12 +21,15 @@ public class ApiPresCtrl {
         products.add(new Product(2L, "Job Creation", "img", "Job creation blabla"));
         products.add(new Product(3L, "Protection and promotion of rights of OFWs", "img", "Protection and promotion of rights of OFWs blabla"));
         products.add(new Product(4L, "Welfare of senior citizens", "img", "Welfare of senior citizens blabla"));
-        products.add(new Product(5L, "Increased benefits of public school teachers ", "img", "Increased benefits of public school teachers  blabla"));
+        products.add(new Product(5L, "Increased benefits of public school teachers", "img", "Increased benefits of public school teachers  blabla"));
         products.add(new Product(6L, "Mass housing", "img", "Mass housing blabla"));
+
+
 
         return products;
     }
 
+    @CrossOrigin(value = "*")
     @RequestMapping(method = RequestMethod.POST, value = "get-couriers")
     public List<Courier> couriers(@RequestBody List<Long> products) {
         List<Courier> couriers = new ArrayList<>();
