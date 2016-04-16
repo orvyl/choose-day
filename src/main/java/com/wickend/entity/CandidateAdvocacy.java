@@ -17,11 +17,14 @@ public class CandidateAdvocacy {
     @ManyToOne
     @JoinColumn
     private Candidate candidate;
-    private Long advocacyId;
+
+    @ManyToOne
+    @JoinColumn
+    private Advocacy advocacy;
 
     public CandidateAdvocacy() {}
-    public CandidateAdvocacy(Candidate candidate, Long advocacyId) {
+    public CandidateAdvocacy(Candidate candidate, Advocacy advocacy) {
         this.candidate = candidate;
-        this.advocacyId = advocacyId;
+        this.advocacy = advocacy;
     }
 }

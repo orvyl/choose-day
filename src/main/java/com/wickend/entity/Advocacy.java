@@ -2,10 +2,8 @@ package com.wickend.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by vyl on 4/16/16.
@@ -19,6 +17,9 @@ public class Advocacy {
 
     private String title;
     private String description;
+
+    @OneToMany(mappedBy = "advocacy")
+    private List<CandidateAdvocacy> candidateAdvocacies;
 
     public Advocacy() {}
     public Advocacy(String title, String description) {

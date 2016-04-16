@@ -41,11 +41,59 @@ public class ChooseDayApplication {
 			Advocacy massTransaport = advocacyRepository.save(new Advocacy("Addressing mass transport problem", "Addressing mass transport problem blabla"));
 			Advocacy fightCrimeDrugs = advocacyRepository.save(new Advocacy("Fighting criminality, illegal drugs", "Fighting criminality, illegal drugs blabla"));
 			Advocacy antiCorrupt = advocacyRepository.save(new Advocacy("Addressing corruption", "Addressing corruption blabla"));
+			Advocacy federalism = advocacyRepository.save(new Advocacy("Shifting to a federal system of government", "Shifting to a federal system of government blabla"));
+			Advocacy deathPenalty = advocacyRepository.save(new Advocacy("Reviving the death penalty", "Reviving the death penalty blabla"));
+			Advocacy charterChange = advocacyRepository.save(new Advocacy("Charter change", "Charter change blabla"));
+			Advocacy childrenWelfare = advocacyRepository.save(new Advocacy("Children's Welfare", "Children's Welfare blabla"));
+			Advocacy electoralReform = advocacyRepository.save(new Advocacy("Electoral reform", "Electoral reform blabla"));
+			Advocacy foi = advocacyRepository.save(new Advocacy("Freedom of Information", "Freedom of Information blabla"));
+			Advocacy goodGovernance = advocacyRepository.save(new Advocacy("Good governance", "Good governance blabla"));
+			Advocacy education = advocacyRepository.save(new Advocacy("Education", "Education blabla"));
+			Advocacy ruleOfLaw = advocacyRepository.save(new Advocacy("Rule of Law", "Rule of Law blabla"));
+			Advocacy foreignPolicy = advocacyRepository.save(new Advocacy("Foreign Policy", "Foreign Policy blabla"));
+			Advocacy womensRight = advocacyRepository.save(new Advocacy("Women's right", "Women's right blabla"));
 
-			List<CandidateAdvocacy> binayAdvc = new ArrayList<>();
-			binayAdvc.add(new CandidateAdvocacy(binay, povertyReduction.getId()));
+			List<CandidateAdvocacy> caBinay = new ArrayList<>();
+			caBinay.add(new CandidateAdvocacy(binay, povertyReduction));
+			caBinay.add(new CandidateAdvocacy(binay, jobCreation));
+			caBinay.add(new CandidateAdvocacy(binay, protectionPromoteOFW));
+			caBinay.add(new CandidateAdvocacy(binay, welfareSeniorCit));
+			caBinay.add(new CandidateAdvocacy(binay, increaseBenSchTchr));
+			caBinay.add(new CandidateAdvocacy(binay, massHousing));
+			caBinay.add(new CandidateAdvocacy(binay, massTransaport));
+			candidateAdvocacyRepository.save(caBinay);
 
-			candidateAdvocacyRepository.save(binayAdvc);
+			List<CandidateAdvocacy> caDuterte = new ArrayList<>();
+			caDuterte.add(new CandidateAdvocacy(duterte, fightCrimeDrugs));
+			caDuterte.add(new CandidateAdvocacy(duterte, antiCorrupt));
+			caDuterte.add(new CandidateAdvocacy(duterte, federalism));
+			caDuterte.add(new CandidateAdvocacy(duterte, deathPenalty));
+			caDuterte.add(new CandidateAdvocacy(duterte, charterChange));
+			candidateAdvocacyRepository.save(caDuterte);
+
+			List<CandidateAdvocacy> caPoe = new ArrayList<>();
+			caPoe.add(new CandidateAdvocacy(poe, povertyReduction));
+			caPoe.add(new CandidateAdvocacy(poe, massTransaport));
+			caPoe.add(new CandidateAdvocacy(poe, childrenWelfare));
+			caPoe.add(new CandidateAdvocacy(poe, electoralReform));
+			caPoe.add(new CandidateAdvocacy(poe, foi));
+			candidateAdvocacyRepository.save(caPoe);
+
+			List<CandidateAdvocacy> caRoxas = new ArrayList<>();
+			caRoxas.add(new CandidateAdvocacy(roxas, povertyReduction));
+			caRoxas.add(new CandidateAdvocacy(roxas, jobCreation));
+			caRoxas.add(new CandidateAdvocacy(roxas, antiCorrupt));
+			caRoxas.add(new CandidateAdvocacy(roxas, goodGovernance));
+			caRoxas.add(new CandidateAdvocacy(roxas, education));
+			candidateAdvocacyRepository.save(caRoxas);
+
+			List<CandidateAdvocacy> caSantiago = new ArrayList<>();
+			caSantiago.add(new CandidateAdvocacy(santiago, antiCorrupt));
+			caSantiago.add(new CandidateAdvocacy(santiago, goodGovernance));
+			caSantiago.add(new CandidateAdvocacy(santiago, ruleOfLaw));
+			caSantiago.add(new CandidateAdvocacy(santiago, foreignPolicy));
+			caSantiago.add(new CandidateAdvocacy(santiago, womensRight));
+			candidateAdvocacyRepository.save(caSantiago);
 		};
 	}
 }
