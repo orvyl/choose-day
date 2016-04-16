@@ -1,12 +1,16 @@
 package com.wickend.cotroller;
 
+import com.wickend.entity.CandidateAdvocacy;
 import com.wickend.payload.Courier;
 import com.wickend.payload.Product;
+import com.wickend.repo.AdvocacyRepository;
+import com.wickend.repo.CandidateAdvocacyRepository;
 import com.wickend.repo.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -19,15 +23,23 @@ public class ApiPresCtrl {
     @Autowired
     private CandidateRepository candidateRepository;
 
+    @Autowired
+    private CandidateAdvocacyRepository candidateAdvocacyRepository;
+
+    @Autowired
+    private AdvocacyRepository advocacyRepository;
+
     @RequestMapping(value = "products")
     public List<Product> productsToDisplay() {
         List<Product> products = new ArrayList<>();
-        products.add(new Product(1L, "Poverty reduction", "img", "Poverty reduction blabla"));
-        products.add(new Product(2L, "Job Creation", "img", "Job creation blabla"));
-        products.add(new Product(3L, "Protection and promotion of rights of OFWs", "img", "Protection and promotion of rights of OFWs blabla"));
-        products.add(new Product(4L, "Welfare of senior citizens", "img", "Welfare of senior citizens blabla"));
-        products.add(new Product(5L, "Increased benefits of public school teachers", "img", "Increased benefits of public school teachers  blabla"));
-        products.add(new Product(6L, "Mass housing", "img", "Mass housing blabla"));
+        candidateRepository.findAll().forEach(candidate -> {
+            List<CandidateAdvocacy> candidateAdvocacies = candidate.getCandidateAdvocacies();
+            Collections.shuffle(candidateAdvocacies);
+            for (int x = 0; x < 3; x++) {
+                CandidateAdvocacy c = candidateAdvocacies.get(x);
+                products.add(new Product(c.getId(), c.getAdvocacy().getTitle(), "img", c.getAdvocacy().getDescription()));
+            }
+        });
 
         return products;
     }
