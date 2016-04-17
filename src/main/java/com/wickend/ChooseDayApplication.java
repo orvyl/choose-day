@@ -113,8 +113,6 @@ public class ChooseDayApplication {
 			caSantiago.add(new CandidateAdvocacy(santiago, foreignPolicy));
 			caSantiago.add(new CandidateAdvocacy(santiago, womensRight));
 			candidateAdvocacyRepository.save(caSantiago);
-
-			// todo seed result
 		};
 	}
 }
