@@ -72,6 +72,7 @@ public class ApiPresCtrl {
         receipt.setPercent(((ctr[0]/totCount) * 100));
         receipt.setCourier(courier.get(cone.getId()));
         receipt.setCriticism(cone.getCriticisms());
+        receipt.setMunicipalVisitedPrcnt(cone.getMunVistdPercnt());
 
         return receipt;
     }
