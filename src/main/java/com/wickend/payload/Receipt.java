@@ -11,6 +11,9 @@ import java.util.List;
 public class Receipt {
     private String presName;
     private String courier;
-    private List<Product> products;
+    private List<Product> choosenAdvocacy;
+    private List<Product> mainAdvocacy;
     private double percent;
+    private String municipalVisitedPrcnt;
+    private String criticism;
 }

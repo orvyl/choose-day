@@ -23,6 +23,7 @@ public class Candidate {
     private String firstName;
     private String lastName;
     private String criticisms;
+    private String munVistdPercnt;
 
     @OneToMany(mappedBy = "candidate")
     private List<CandidateAdvocacy> candidateAdvocacies;

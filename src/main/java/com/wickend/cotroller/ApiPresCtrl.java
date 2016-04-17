@@ -61,11 +61,17 @@ public class ApiPresCtrl {
         });
 
         Receipt receipt = new Receipt();
-        receipt.setProducts(products);
-
+        receipt.setChoosenAdvocacy(products);
+        List<Product> mainAdvocacies = new ArrayList<>();
+        cone.getCandidateAdvocacies().forEach(mainAdv -> {
+            Advocacy adv = mainAdv.getAdvocacy();
+            mainAdvocacies.add(new Product(adv.getId(), adv.getTitle(), "img", adv.getDescription()));
+        });
+        receipt.setMainAdvocacy(mainAdvocacies);
         receipt.setPresName(cone.getFirstName() + " " + cone.getLastName());
         receipt.setPercent(((ctr[0]/totCount) * 100));
         receipt.setCourier(courier.get(cone.getId()));
+        receipt.setCriticism(cone.getCriticisms());
 
         return receipt;
     }
