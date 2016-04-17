@@ -47,24 +47,25 @@ public class ApiPresCtrl {
 
         Long cid = Long.valueOf(id);
         Result r = resultRepository.findOne(cid);
+        Candidate cone = candidateRepository.findOne(r.getCandidateId());
         List<Product> products = new ArrayList<>();
         List<String> ac = Arrays.asList(r.getItems().split("\\|"));
         ac.forEach(s -> {
             Advocacy one = advocacyRepository.findOne(Long.valueOf(s));
             products.add(new Product(one.getId(), one.getTitle(), "img", one.getDescription()));
         });
-        long totCount = resultRepository.count();
-        final Long[] ctr = {0L};
+        double totCount = resultRepository.count();
+        final double[] ctr = {0};
         resultRepository.findAll().forEach(result -> {
-            if (result.getCandidateId().equals(cid)) ctr[0]++;
+            if (result.getCandidateId().equals(cone.getId())) ctr[0]++;
         });
 
         Receipt receipt = new Receipt();
         receipt.setProducts(products);
-        Candidate one = candidateRepository.findOne(r.getCandidateId());
-        receipt.setPresName(one.getFirstName() + " " + one.getLastName());
-        receipt.setPercent((int) ((ctr[0]/totCount) * 100));
-        receipt.setCourier(courier.get(cid));
+
+        receipt.setPresName(cone.getFirstName() + " " + cone.getLastName());
+        receipt.setPercent(((ctr[0]/totCount) * 100));
+        receipt.setCourier(courier.get(cone.getId()));
 
         return receipt;
     }
@@ -92,8 +93,6 @@ public class ApiPresCtrl {
     @RequestMapping(method = RequestMethod.POST, value = "get-couriers")
     public List<Courier> couriers(@RequestBody List<Long> products) {
         List<Courier> couriers = new ArrayList<>();
-
-        // TODO add description
 
         CandAdvCtr binay = new CandAdvCtr(1L, 0, "XYZ Boombastic");
         CandAdvCtr duterte = new CandAdvCtr(2L, 0, "Caterpilarpil Express");

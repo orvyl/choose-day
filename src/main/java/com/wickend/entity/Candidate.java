@@ -22,7 +22,7 @@ public class Candidate {
 
     private String firstName;
     private String lastName;
-    private BigDecimal netWorth;
+    private String criticisms;
 
     @OneToMany(mappedBy = "candidate")
     private List<CandidateAdvocacy> candidateAdvocacies;

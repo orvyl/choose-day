@@ -26,11 +26,25 @@ public class ChooseDayApplication {
 									AdvocacyRepository advocacyRepository,
 									CandidateAdvocacyRepository candidateAdvocacyRepository) {
 		return strings -> {
-			Candidate binay = candidateRepository.save(new Candidate(1L, "Jejomar", "Binay"));
-			Candidate duterte = candidateRepository.save(new Candidate(2L, "Rudy", "Duterte"));
-			Candidate poe = candidateRepository.save(new Candidate(3L, "Grace", "Poe"));
-			Candidate roxas = candidateRepository.save(new Candidate(4L, "Mar", "Roxas"));
-			Candidate santiago = candidateRepository.save(new Candidate(5L, "Miriam", "Santiago"));
+			Candidate binay = new Candidate(1L, "Jejomar", "Binay");
+			binay.setCriticisms("allegedly committing large-scale corruption involving overpriced buildings, as well as money laundering|perpetuating dynastic rule in Makati|his alleged \"epal\" acts|NET WORTH(2014): P60.25 million");
+			binay = candidateRepository.save(binay);
+
+			Candidate duterte = new Candidate(2L, "Rudy", "Duterte");
+			duterte.setCriticisms("coarse and brusque language|allegedly tolerating summary executions of criminals in Davao|his infidelity and philandering|NET WORTH(2014): P21.97 million");
+			duterte = candidateRepository.save(duterte);
+
+			Candidate poe = new Candidate(3L, "Grace", "Poe");
+			poe.setCriticisms("insufficient experience and track record in public service|renouncing Filipino citizenship in exchange for U.S. citizenship|not meeting the 10-year residency requirement for running for President|NET WORTH(2014): P89.46 million");
+			poe = candidateRepository.save(poe);
+
+			Candidate roxas = new Candidate(4L, "Mar", "Roxas");
+			roxas.setCriticisms("traffic arises from prosperity|questioning moves by legislators to lower individual income tax rates|elite, haciendero origins|alleged oversensitive and irritable behavior|NET WORTH(2014): P202.08 million");
+			roxas = candidateRepository.save(roxas);
+
+			Candidate santiago = new Candidate(5L, "Miriam", "Santiago");
+			santiago.setCriticisms("scathing remarks|running mate|refused to release medical records|NET WORTH(2014): P73.03 million");
+			santiago = candidateRepository.save(santiago);
 
 			Advocacy povertyReduction = advocacyRepository.save(new Advocacy("Poverty Reduction", "According to the 2012 SWS  survey on the most important problem of the country, 10.22% of the electorate mentioned Poverty which makes it the 3rd most cited problem"));
 			Advocacy jobCreation = advocacyRepository.save(new Advocacy("Job Creation", "Unemployment, at 33.96%  is the top most important problem of the country based on the 2012 SWS survey "));
