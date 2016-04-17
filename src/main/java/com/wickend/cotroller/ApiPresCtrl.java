@@ -112,6 +112,7 @@ public class ApiPresCtrl {
         candsAdvsCtrs.put(roxas.id, roxas);
         candsAdvsCtrs.put(santiago.id, santiago);
 
+
         List<CandAdvCtr> candAdvCtrszzz = new ArrayList<>();
         candAdvCtrszzz.add(binay);
         candAdvCtrszzz.add(duterte);
@@ -129,8 +130,10 @@ public class ApiPresCtrl {
         });
         Collections.sort(candAdvCtrszzz, (o1, o2) -> o2.ctr - o1.ctr);
 
-        for (int x = 0; x < 3; x++)
-            couriers.add(new Courier(candAdvCtrszzz.get(x).id, candAdvCtrszzz.get(x).pseudoName, candAdvCtrszzz.get(x).criticism));
+        for (int x = 0; x < 3; x++) {
+            Long id = candAdvCtrszzz.get(x).id;
+            couriers.add(new Courier(id, candAdvCtrszzz.get(x).pseudoName, candAdvCtrszzz.get(x).criticism, getStand(id)));
+        }
 
         return couriers;
     }
@@ -165,5 +168,61 @@ public class ApiPresCtrl {
                     ", pseudoName='" + pseudoName + '\'' +
                     '}';
         }
+    }
+
+    private String getStand(Long id) {
+        Map<Long, String> stand = new HashMap<>();
+        stand.put(1L, "PASS FREEDOM OF INFORMATION BILL? - YES|" +
+                "PASS ANTI-POLITICAL DYNASTY BILL? - NO|" +
+                "LOWER PERSONAL INCOME TAX? - YES|" +
+                "PASS PROPOSED BANGSAMORO BASIC LAW? - NO|" +
+                "FIGHT FOR RIGHTS OVER WEST PHILIPPINE SEA? - YES|" +
+                "PUSH FOR CHARTER CHANGE? - YES|" +
+                "PROMOTE EQUAL RIGHTS FOR LGBTs? - YES|" +
+                "CONTINUE CONDITIONAL CASH TRANSFER PROGRAM? - YES|" +
+                "SUPPORT JOB CONTRACTUALIZATION? - NO|" +
+                "PUSH FOR THE PASSAGE OF A DIVORCE BILL? - NO");
+        stand.put(2L, "PASS FREEDOM OF INFORMATION BILL? - YES|" +
+                "PASS ANTI-POLITICAL DYNASTY BILL? - NO|" +
+                "LOWER PERSONAL INCOME TAX? - NO|" +
+                "PASS PROPOSED BANGSAMORO BASIC LAW? - YES|" +
+                "FIGHT FOR RIGHTS OVER WEST PHILIPPINE SEA? - YES|" +
+                "PUSH FOR CHARTER CHANGE? - YES|" +
+                "PROMOTE EQUAL RIGHTS FOR LGBTs? - YES|" +
+                "CONTINUE CONDITIONAL CASH TRANSFER PROGRAM? - YES|" +
+                "SUPPORT JOB CONTRACTUALIZATION? - NO|" +
+                "PUSH FOR THE PASSAGE OF A DIVORCE BILL? - NO");
+        stand.put(3L, "PASS FREEDOM OF INFORMATION BILL? - YES|" +
+                "PASS ANTI-POLITICAL DYNASTY BILL? - YES|" +
+                "LOWER PERSONAL INCOME TAX? - YES|" +
+                "PASS PROPOSED BANGSAMORO BASIC LAW? - NO CLEAR STAND|" +
+                "FIGHT FOR RIGHTS OVER WEST PHILIPPINE SEA? - YES|" +
+                "PUSH FOR CHARTER CHANGE? - YES|" +
+                "PROMOTE EQUAL RIGHTS FOR LGBTs? - YES|" +
+                "CONTINUE CONDITIONAL CASH TRANSFER PROGRAM? - YES|" +
+                "SUPPORT JOB CONTRACTUALIZATION? - NO|" +
+                "PUSH FOR THE PASSAGE OF A DIVORCE BILL? - NO");
+        stand.put(4L, "PASS FREEDOM OF INFORMATION BILL? - YES|" +
+                "PASS ANTI-POLITICAL DYNASTY BILL? - YES|" +
+                "LOWER PERSONAL INCOME TAX? - NO CLEAR STAND|" +
+                "PASS PROPOSED BANGSAMORO BASIC LAW? - YES|" +
+                "FIGHT FOR RIGHTS OVER WEST PHILIPPINE SEA? - YES|" +
+                "PUSH FOR CHARTER CHANGE? - NO|" +
+                "PROMOTE EQUAL RIGHTS FOR LGBTs? - YES|" +
+                "CONTINUE CONDITIONAL CASH TRANSFER PROGRAM? - YES|" +
+                "SUPPORT JOB CONTRACTUALIZATION? - NO|" +
+                "PUSH FOR THE PASSAGE OF A DIVORCE BILL? - NO");
+        stand.put(5L, "PASS FREEDOM OF INFORMATION BILL? - YES|" +
+                "PASS ANTI-POLITICAL DYNASTY BILL? - YES|" +
+                "LOWER PERSONAL INCOME TAX? - YES|" +
+                "PASS PROPOSED BANGSAMORO BASIC LAW? - NO|" +
+                "FIGHT FOR RIGHTS OVER WEST PHILIPPINE SEA? - YES|" +
+                "PUSH FOR CHARTER CHANGE? - YES|" +
+                "PROMOTE EQUAL RIGHTS FOR LGBTs? - YES|" +
+                "CONTINUE CONDITIONAL CASH TRANSFER PROGRAM? - YES|" +
+                "SUPPORT JOB CONTRACTUALIZATION? - NO|" +
+                "PUSH FOR THE PASSAGE OF A DIVORCE BILL? - YES");
+
+        return stand.get(id);
     }
 }

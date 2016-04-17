@@ -10,12 +10,14 @@ public class Courier {
     private Long id;
     private String name;
     private String description;
+    private String stand;
 
     public Courier() {}
 
-    public Courier(Long id, String name, String description) {
+    public Courier(Long id, String name, String description, String stand) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.stand = stand;
     }
 }
