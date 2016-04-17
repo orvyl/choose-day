@@ -94,11 +94,11 @@ public class ApiPresCtrl {
     public List<Courier> couriers(@RequestBody List<Long> products) {
         List<Courier> couriers = new ArrayList<>();
 
-        CandAdvCtr binay = new CandAdvCtr(1L, 0, "XYZ Boombastic");
-        CandAdvCtr duterte = new CandAdvCtr(2L, 0, "Caterpilarpil Express");
-        CandAdvCtr poe = new CandAdvCtr(3L, 0, "Padalapit");
-        CandAdvCtr roxas = new CandAdvCtr(4L, 0, "PikPakBoom Cour");
-        CandAdvCtr santiago = new CandAdvCtr(5L, 0, "UpUpAndAway");
+        CandAdvCtr binay = new CandAdvCtr(1L, 0, "XYZ Boombastic", candidateRepository.findOne(1L).getCriticisms());
+        CandAdvCtr duterte = new CandAdvCtr(2L, 0, "Caterpilarpil Express", candidateRepository.findOne(2L).getCriticisms());
+        CandAdvCtr poe = new CandAdvCtr(3L, 0, "Padalapit", candidateRepository.findOne(3L).getCriticisms());
+        CandAdvCtr roxas = new CandAdvCtr(4L, 0, "PikPakBoom Cour", candidateRepository.findOne(4L).getCriticisms());
+        CandAdvCtr santiago = new CandAdvCtr(5L, 0, "UpUpAndAway", candidateRepository.findOne(5L).getCriticisms());
         Map<Long, CandAdvCtr> candsAdvsCtrs = new HashMap<>();
         candsAdvsCtrs.put(binay.id, binay);
         candsAdvsCtrs.put(duterte.id, duterte);
@@ -124,7 +124,7 @@ public class ApiPresCtrl {
         Collections.sort(candAdvCtrszzz, (o1, o2) -> o2.ctr - o1.ctr);
 
         for (int x = 0; x < 3; x++)
-            couriers.add(new Courier(candAdvCtrszzz.get(x).id, candAdvCtrszzz.get(x).pseudoName, "[description]"));
+            couriers.add(new Courier(candAdvCtrszzz.get(x).id, candAdvCtrszzz.get(x).pseudoName, candAdvCtrszzz.get(x).criticism));
 
         return couriers;
     }
@@ -139,15 +139,17 @@ public class ApiPresCtrl {
     }
 
     class CandAdvCtr {
-        public CandAdvCtr(Long id, Integer ctr, String pseudoName) {
+        public CandAdvCtr(Long id, Integer ctr, String pseudoName, String criticism) {
             this.id = id;
             this.ctr = ctr;
             this.pseudoName = pseudoName;
+            this.criticism = criticism;
         }
 
         public Long id;
         public Integer ctr;
         public String pseudoName;
+        public String criticism;
 
         @Override
         public String toString() {
