@@ -171,6 +171,7 @@ public class ApiPresCtrl {
         }
     }
 
+    // TODO put to db
     private String getStand(Long id) {
         Map<Long, String> stand = new HashMap<>();
         stand.put(1L, "PASS FREEDOM OF INFORMATION BILL? - YES|" +
