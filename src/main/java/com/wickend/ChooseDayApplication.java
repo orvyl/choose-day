@@ -27,27 +27,27 @@ public class ChooseDayApplication {
 									CandidateAdvocacyRepository candidateAdvocacyRepository) {
 		return strings -> {
 			Candidate binay = new Candidate(1L, "Jejomar", "Binay");
-			binay.setMunVistdPercnt("12.48");
+			binay.setMunVistdPercnt("12.48%|204");
 			binay.setCriticisms("allegedly committing large-scale corruption involving overpriced buildings, as well as money laundering|perpetuating dynastic rule in Makati|his alleged \"epal\" acts|NET WORTH(2014): P60.25 million");
 			binay = candidateRepository.save(binay);
 
 			Candidate duterte = new Candidate(2L, "Rudy", "Duterte");
-			duterte.setMunVistdPercnt("4.58");
+			duterte.setMunVistdPercnt("4.58%|75");
 			duterte.setCriticisms("coarse and brusque language|allegedly tolerating summary executions of criminals in Davao|his infidelity and philandering|NET WORTH(2014): P21.97 million");
 			duterte = candidateRepository.save(duterte);
 
 			Candidate poe = new Candidate(3L, "Grace", "Poe");
-			poe.setMunVistdPercnt("4.77");
+			poe.setMunVistdPercnt("4.77%|78");
 			poe.setCriticisms("insufficient experience and track record in public service|renouncing Filipino citizenship in exchange for U.S. citizenship|not meeting the 10-year residency requirement for running for President|NET WORTH(2014): P89.46 million");
 			poe = candidateRepository.save(poe);
 
 			Candidate roxas = new Candidate(4L, "Mar", "Roxas");
-			roxas.setMunVistdPercnt("7.77");
+			roxas.setMunVistdPercnt("7.77%|127");
 			roxas.setCriticisms("traffic arises from prosperity|questioning moves by legislators to lower individual income tax rates|elite, haciendero origins|alleged oversensitive and irritable behavior|NET WORTH(2014): P202.08 million");
 			roxas = candidateRepository.save(roxas);
 
 			Candidate santiago = new Candidate(5L, "Miriam", "Santiago");
-			santiago.setMunVistdPercnt("0.85");
+			santiago.setMunVistdPercnt("0.85%|14");
 			santiago.setCriticisms("scathing remarks|running mate|refused to release medical records|NET WORTH(2014): P73.03 million");
 			santiago = candidateRepository.save(santiago);
 
